@@ -64,6 +64,10 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: white;
+  height: 100%;
+}
+body {
+  height: 100%;
 }
 
 *,
@@ -347,10 +351,11 @@ input::placeholder {
 
 .c-app {
   display: grid;
-  grid-template-columns: 260px, 370px, 370px 370px;
-  grid-template-rows: 70px, 133px, 439px, 479px;
+  grid-template-columns: 260px 370px 370px 370px;
+  grid-template-rows: 70px 133px 439px 479px;
   grid-gap: 30;
   height: 100%;
+  min-height: 100vh;
 }
 
 .c-app__logo {
@@ -358,7 +363,8 @@ input::placeholder {
   grid-row-end: 1;
   grid-column-start: 1;
   grid-column-end: 1;
-  background-color: #3b3b53;
+  background-color: var(--global-color-neutral-xx-dark);
+  padding: var(--global-whitespace-xs);
 }
 
 .c-app__topbar {
@@ -366,6 +372,11 @@ input::placeholder {
   grid-row-end: 1;
   grid-column-start: 1;
   grid-column-end: 4;
+
+  background-color: #fff;
+  box-shadow: var(--global-box-shadow);
+  z-index: 20;
+  display: none;
 }
 
 .c-app__sidebar {
@@ -381,7 +392,46 @@ input::placeholder {
   grid-row-start: 2;
   grid-row-end: span 4;
   grid-column-start: 2;
-  grid-column-end: 4;
+  grid-column-end: 6;
+}
+.c-main-nav {
+  color: #fff;
+}
+
+.c-main-nav__icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  fill: var(--global-color-neutral);
+  margin-right: var(--global-whitespace-xs);
+}
+
+.c-main-nav__list {
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.c-main-nav__item {
+  margin: var(--global-whitespace-xxs);
+  padding: var(--global-whitespace-sm);
+  list-style: none;
+}
+
+.c-main-nav__link {
+  margin: var(--global-baseline) 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.c-main-nav__link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  line-height: calc(var(--global-baseline) * 4);
+  padding: var(--global-whitespace-sm) var(--global-whitespace-lg) var(--global-whitespace-sm);
 }
 /*------------------------------------*\
 #UTILITIES
