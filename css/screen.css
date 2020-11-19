@@ -43,6 +43,7 @@
 
   /* transitions */
   --transition-alpha: 0.1s;
+  --transition-beta: 2s;
 
   --global-font-size: 15px;
 }
@@ -409,6 +410,10 @@ input::placeholder {
 .c-main-nav {
   display: flex;
   align-items: center;
+
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .c-main-nav__icon {
@@ -427,16 +432,6 @@ input::placeholder {
 
 .c-main-nav__item {
   margin: var(--global-whitespace-xxs);
-  padding: var(--global-whitespace-sm);
-  padding-right: 130px;
-  list-style: none;
-}
-
-.c-main-nav__link {
-  margin: var(--global-baseline) 0;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
 }
 
 .c-main-nav__link {
@@ -446,8 +441,31 @@ input::placeholder {
   color: #fff;
   font-size: 1rem;
   line-height: calc(var(--global-baseline) * 4);
-  padding: var(--global-whitespace-sm) var(--global-whitespace-lg) var(--global-whitespace-sm);
+  padding: var(--global-whitespace-sm) 120px var(--global-whitespace-sm) var(--global-whitespace-md);
+  /*border-left: 5px solid var(--global-color-alpha);*/
+  transform: translateX(-5px);
+  width: calc(100% + 5px);
+  transition: all var(--transition-beta);
 }
+
+.c-main-nav__link:hover {
+  transition: all var(--transition-alpha);
+}
+
+.c-main-nav__link,
+.c-main-nav__link:hover,
+.c-main-nav__link:visited {
+  color: #fff;
+}
+
+.c-main-nav__link:hover,
+.c-main-nav__link:focus,
+.is-selected .c-main-nav__link {
+  color: #fff;
+  background-color: var(--global-color-neutral-xx-dark);
+  border-left: 5px solid var(--global-color-alpha);
+}
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
