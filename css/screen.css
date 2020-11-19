@@ -43,6 +43,8 @@
 
   /* transitions */
   --transition-alpha: 0.1s;
+
+  --global-font-size: 15px;
 }
 
 /*------------------------------------*\
@@ -56,7 +58,7 @@
 */
 
 html {
-  font-size: 15px;
+  font-size: var(--global-font-size);
   line-height: 1.5;
   font-family: 'Source Sans Pro', sans-serif;
   color: var(--color-neutral-dark);
@@ -169,6 +171,12 @@ li ol {
   margin-bottom: 0;
 }
 
+li:hover {
+  background-color: var(--global-color-neutral-xx-dark);
+  align-items: center;
+  display: flex;
+}
+
 blockquote {
   font-style: normal;
   font-size: 23px;
@@ -201,6 +209,8 @@ a {
   outline-color: var(--color-alpha);
   outline-width: medium;
   outline-offset: 2px;
+  text-decoration: none;
+  display: flex;
 }
 
 a:visited,
@@ -365,6 +375,8 @@ input::placeholder {
   grid-column-end: 1;
   background-color: var(--global-color-neutral-xx-dark);
   padding: var(--global-whitespace-xs);
+  color: var(--global-color-neutral-xxxx-light);
+  font-weight: bold;
 }
 
 .c-app__topbar {
@@ -395,7 +407,8 @@ input::placeholder {
   grid-column-end: 6;
 }
 .c-main-nav {
-  color: #fff;
+  display: flex;
+  align-items: center;
 }
 
 .c-main-nav__icon {
@@ -409,11 +422,13 @@ input::placeholder {
 .c-main-nav__list {
   margin-bottom: 0;
   list-style: none;
+  color: var(--global-color-neutral-xxxx-light);
 }
 
 .c-main-nav__item {
   margin: var(--global-whitespace-xxs);
   padding: var(--global-whitespace-sm);
+  padding-right: 130px;
   list-style: none;
 }
 
